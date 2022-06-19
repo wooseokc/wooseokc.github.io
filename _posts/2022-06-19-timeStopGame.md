@@ -122,4 +122,4 @@ function targetSetting () {
 이번 과제를 하면서 ui 디자인 하는 것이 참 어렵다는 것을 느꼈다. 색을 어떻게 써야 싼마이(?)가 안나는지 감이 안온다.... 그리고 js 코드 모듈 분리를 안해놔서 보기가 좀 어렵다. 다음 과제부터는 분리해서 작성해보도록 노력해보겠다. 
 
 자세한 코드는 
-(https://github.com/wooseokc/wooseoks/tree/main/timeStopGame)
+<https://github.com/wooseokc/wooseoks/tree/main/timeStopGame>
