@@ -12,4 +12,4 @@ title:  "upbit API를 이용해 코인 시세정보를 캐러셀 스타일로 �
 완성본은 대략 이러한 
 모습이다.
 
-<img src="/https://user-images.githubusercontent.com/99978225/174465624-473d4aa1-cedb-44c5-97b8-9d7a2503d918.png" width="800px" height="300px" alt="업비트"></img>
+<img src="![20220619_131541](https://user-images.githubusercontent.com/99978225/174465667-61f93a52-03bb-45bf-bc6e-c9c143d679c7.png)" width="800px" height="300px" alt="업비트"></img>
