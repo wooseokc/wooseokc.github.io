@@ -9,9 +9,5 @@ title:  "upbit API를 이용해 코인 시세정보를 캐러셀 스타일로 �
 
 이 과제를 하게 된 이유는 캐러셀 슬라이드를 만드는 데 그냥 만들면 심심해서 캐러셀 요소안에 무엇인가 넣고 싶었고, 코인 시세를 넣게 되었다.
 
-완성본은 대략 이러한 
-모습이다.
-
-<img src="![20220619_131541](https://user-images.githubusercontent.com/99978225/174465667-61f93a52-03bb-45bf-bc6e-c9c143d679c7.png)" width="800px" height="300px" alt="업비트"></img>
-
+완성본은 대략 이러한 모습이다.
 ![20220619_131541](https://user-images.githubusercontent.com/99978225/174465667-61f93a52-03bb-45bf-bc6e-c9c143d679c7.png)
