@@ -94,4 +94,4 @@ fetch api를 통해 ajax 통신으로 가격 받아오는 function을 만들고 
 한가지 아쉬운 것은 프로젝트 처음부터 코인 시세를 받아올 생각이 없었어서 html을 정적으로 만들어놓고 시작했다. 동적으로 했다면 더 많은 코인 정보를 넣을 수 있었을텐데, 누구한테 보여주는 것도 아니어서 귀찮기도하고...
 
 자세한 코드는 
-https://github.com/wooseokc/wooseoks/tree/main/upbitCarrousel
+<https://github.com/wooseokc/wooseoks/tree/main/upbitCarrousel>
