@@ -1,6 +1,8 @@
 ---
 layout: single
 title:  "시간 멈추기 게임"
+categories : "single-project"
+tag : [JS, 구현]
 ---
 
 # 스탑워치 원리를 이용해 만든 시간 멈추기 게임
