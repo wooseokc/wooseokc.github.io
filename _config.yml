@@ -16,9 +16,9 @@ minimal_mistakes_skin    : "dark" # "air", "aqua", "contrast", "dark", "dirt", "
 
 # Site Settings
 locale                   : "kr-KO"
-title                    : "우석이의 개발 블로그"
+title                    : "WooSeok's 개발 블로그"
 title_separator          : "|"
-subtitle                 : "Winning Mentality"
+subtitle                 : "Yeah~"
 name                     : "우석"
 description              : "개발하면서 이것 저것"
 url                      : "https://wooseokc.github.io"
@@ -32,7 +32,7 @@ words_per_minute         : 200
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
-    shortname            : "useogs-blog"
+    shortname            : "wooseoks-blog"
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
