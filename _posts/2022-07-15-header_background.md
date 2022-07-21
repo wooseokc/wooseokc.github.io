@@ -4,7 +4,6 @@ title:  "윤이나 팬페이지(3) 헤더 섹션- ref 포워딩을 통한 형제
 categories : "single-project"
 tag : [JS, React, ref]
 ---
-
 # ref 포워딩을 이용해보자!
 
   스크롤 이벤트는 이전 포스팅에서 다뤘듯이 이제 큰 문제가 아니다. 요긴한 커스텀 훅도 있기에 말이다. 하지만 이번에 해야 할 것은 조금 더 심화학습이다. 왜냐하면 하나의 컴포넌트가 반응해야하는 대상이 다른 컴포넌트에 있는 DOM 요소이기 때문이다. 이전 포스팅에서는 Carrre.js 컴포넌트 안에서 만들어진 DOM요소를 해당 컴포넌트 안에서 만든 intersectionObserver 객체를 통해 관측했다면, 이번 구현은 App.js 하위에 있는 PhotoSection.js 컴포넌트에서 만든 DOM을 형제 컴포넌트인 Header.js 컴포넌트에서 관리해야한다.
