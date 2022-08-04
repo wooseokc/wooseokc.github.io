@@ -17,7 +17,7 @@ redux의 상태를 업데이트하는 reducer는 순수 함수이다. 이는 외
     })
   } 
 ```
-일단 이 함수를 보기 전에 이 프로젝트의 계층 관계를 파악할 필요가 있다. 이 웹은 크게 header와 infoSector로 이뤄져있다. 사실 코인과 주문 정보가 담긴 부분이 infoSector이다. 
+일단 이 함수를 보기 전에 이 프로젝트의 계층 관계를 파악할 필요가 있다. 이 웹은 크게 header와 infoSector로 이뤄져있다. 그리고 코인과 주문 정보가 담긴 부분이 infoSector이다. 
 
 ```js
 export default function InfoSector () {
@@ -34,7 +34,7 @@ export default function InfoSector () {
   )
 }
 ```
-infosector 안에는 order와 infoSection이 있다. 거래 기능이 order 컴포넌트 차트를 비롯한 코인 정보가 infoSection 컴포넌트에 있다. 여기서 코인 정보에 대한 api호출은 order 컴포넌트와 chart 컴포넌트에서 발생한다. 두곳에서 진행하는 이유는 캔들 정보와 시세 정보를 동시에 주는 api를 업비트에서 제공안한다. 아무튼 chart 컴포넌트에서 호출하는 캔들 정보는 해당 컴포넌트에서만 쓰기에 전역 관리를 할 필요가 없다. 하지만 order 컴포넌트에서 호출하는 시세 정보는 infoSector에서 전역으로 관리된다. 
+infosector 안에는 order와 infoSection이 있다. 거래 기능이 order 컴포넌트 차트를 비롯한 코인 정보가 infoSection 컴포넌트에 있다. 여기서 코인 정보에 대한 api호출은 order 컴포넌트와 chart 컴포넌트에서 발생한다. 두곳에서 진행하는 이유는 캔들 정보와 시세 정보를 동시에 주는 api를 업비트에서 제공하지 않기 때문이다(반드시 api호출을 두번 해야함!). 아무튼 chart 컴포넌트에서 호출하는 캔들 정보는 해당 컴포넌트에서만 쓰기에 전역 관리를 할 필요가 없다. 하지만 order 컴포넌트에서 호출하는 시세 정보는 infoSector에서 전역으로 관리된다. 
 
 자 다시 order 컴포넌트에 있는 api 호출 함수를 보자.
 ```js
