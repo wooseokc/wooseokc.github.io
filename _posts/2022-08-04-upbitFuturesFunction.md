@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "테스트용 첫 게시물!!"
+title:  "업비트 선물거래 기능 구현"
 categories : "small-talk"
 tag : [Typescript, React]
 ---
