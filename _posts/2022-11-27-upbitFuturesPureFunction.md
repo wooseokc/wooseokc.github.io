@@ -15,9 +15,63 @@ export default function Chart () {
       setChartArr(res.data.reverse());
     });
   } 
-  return ()
+  return (
+    <> 
+    { chartArr &&
+      <>
+        <TopBar>
+          <OptionContainer>
+            <MinuteSelect onClick={enterBet} type={'radio'} name={'minute'} id={'1'} value={1} defaultChecked></MinuteSelect>
+            <label htmlFor="1">1분</label>
+            <MinuteSelect onClick={enterBet} type={'radio'} name={'minute'} id={'3'} value={3}></MinuteSelect>
+            <label htmlFor="3">3분</label>
+            <MinuteSelect onClick={enterBet} type={'radio'} name={'minute'} id={'5'} value={5}></MinuteSelect>
+            <label htmlFor="5">5분</label>
+          </OptionContainer>
+        </TopBar>
+        <ChartContainer>
+          <CandleContainer>
+              {candleItem}
+              {
+                ((nowOpen && total) && coinPrice) &&
+                <CandleBox>
+                  {Math.abs(nowOpen-coinPrice) < total && <Candle height={Math.floor(Math.abs(nowOpen-coinPrice)/total*310)} position={(nowOpen > coinPrice ? coinPrice - bottom : nowOpen -bottom)/total*310} color={nowOpen - coinPrice} ></Candle>}
+                  <Line></Line>
+                </CandleBox>
+              }
+          </CandleContainer>
+          <CandlePrice>
+            <div>{top.toLocaleString()}</div>
+            <div>{(bottom + (top-bottom) * 0.75).toLocaleString()}</div>
+            <div>{(bottom + (top-bottom) * 0.5).toLocaleString()}</div>
+            <div>{(bottom + (top-bottom) * 0.25).toLocaleString()}</div>
+            <div>{bottom.toLocaleString()}</div>
+          </CandlePrice>
+          <VolumeContainer>
+            
+              {volumeItem}
+            
+          </VolumeContainer>
+          {
+            volumeTop && 
+            <VolumePrice>
+              <div>{Math.floor(volumeTop)}</div>
+              <div>{Math.floor(volumeTop*0.75)}</div>
+              <div>{Math.floor(volumeTop*0.5)}</div>
+              <div>{Math.floor(volumeTop*0.25)}</div>
+              <div>{0}</div>
+            </VolumePrice>
+          }
+        </ChartContainer>
+      </>
+    }  
+    </>
+  )
 }
 ```
+(자세한 코드는 아래의 깃헙을 참고해주세요
+[레거시 차트 코드]( https://github.com/wooseokc/upbit-futures-legacy/blob/master/src/components/InfoSector/Chart/index.tsx)
+)
 위 코드에서 보면 알 수 있듯이 Chart 컴포넌트가 받는 인자는 없으며, 컴포넌트 안에서 서버에 데이터 호출을 요청한다. 따라서 함수의 결과 값이 함수의 인자가 아닌 업비트 서버에 따라 달라진다. 이것은 당연히 함수형 프로그래밍이 아닌 함수를 사용하는 절차적 프로그래밍이다.
 
 나는 이 컴포넌트를 순수 함수로 만들기 위해 다음과 같이 수정했다.
@@ -43,9 +97,39 @@ interface importData {
 
 export default function Chart (props : importData) {
 
-  return()
+  return (
+    <ChartContainer onMouseDown={MouseDown} onMouseLeave={MouseUp} onMouseUp={MouseUp} onMouseMove={MouseMove}>
+      <SizeButtonContainer>
+        <MinusButton onClick={sizeButton}>-</MinusButton>
+        <PlusButton onClick={sizeButton}>+</PlusButton>
+      </SizeButtonContainer>
+      <CandleContainer>
+        {candles}
+      </CandleContainer>
+      <CandlePrice>
+        <div>{range.max.toLocaleString()}</div>
+        <div>{(range.min + (range.max-range.min) * 0.75).toLocaleString()}</div>
+        <div>{(range.min + (range.max-range.min) * 0.5).toLocaleString()}</div>
+        <div>{(range.min + (range.max-range.min) * 0.25).toLocaleString()}</div>
+        <div>{range.min.toLocaleString()}</div>
+      </CandlePrice>
+      <VolumeContainer>
+        {volumes}
+      </VolumeContainer>
+      <VolumePrice>
+              <div>{Math.floor(range.vMax)}</div>
+              <div>{Math.floor(range.vMax*0.75)}</div>
+              <div>{Math.floor(range.vMax*0.5)}</div>
+              <div>{Math.floor(range.vMax*0.25)}</div>
+              <div>{0}</div>
+      </VolumePrice>
+    </ChartContainer>
+  )
 }
 ```
+(자세한 코드는 아래의 깃헙을 참고해주세요
+[리팩토링한 차트 코드]( https://github.com/wooseokc/upbit-futures-refactored/blob/main/src/components/InfoSector/Chart/refactored.tsx)
+)
 위 코드에서는 Chart 컴포넌트에 props로 전달된 차트 데이터 배열을 그냥 시각화해주는 함수로 나타난다. props로 전달되는 데이터 배열이 달라지면 그 데이터에 맞춰 Chart 컴포넌트는 데이터를 시각화해줄 뿐이다. Chart컴포넌트는 data 배열을 전혀 건드리지 않고 부모 컴포넌트에서 전달받는 데이터를 그릴 뿐이다.
 
 # Why?
